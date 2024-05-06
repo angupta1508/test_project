@@ -34,8 +34,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.methods.generateToken = async function(next) {
     try {
-        const token = await j
-        wt.sign({ "_id": this._id.toString() }, process.env.JWT_KEY);
+        const token = await jwt.sign({ "_id": this._id.toString() }, process.env.JWT_KEY);
         this.tokens =  this.tokens.concat({token});
         await this.save();  
         return token;

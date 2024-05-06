@@ -2,13 +2,14 @@ const express = require("express");
 const User = require("../Model/User");
 const router = express.Router();
 const bcrypt = require("bcrypt");
+const auth = require("../middleware/auth");
 
 
 router.get("/", (req, res) => {
     res.send("This is Home Page");
 })
 
-router.get("/about", (req, res) => {
+router.get("/about", auth, (req, res) => {
     res.send("This is About Page");
 })
 
@@ -53,6 +54,7 @@ router.post("/signin", async (req, res) => {
                 res.status(400).json({ message: "Invalid Login Details" });
             }
             const token =  await user.generateToken();
+            console.log(token);
             res.cookie("jwtoken",token,{
                 expires:new Date(Date.now() + 10000),
                 httpOnly:true
