@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { NavLink, useNavigate  } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../store/auth";
 
 const Login = () => {
-    const navigate  = useNavigate();
+    const navigate = useNavigate();
+    const { storeTokenInLS } = useAuth();
     const [userDetail, setUserDetail] = useState({
         email: "admin@admin.com",
         password: "123456"
@@ -21,12 +23,15 @@ const Login = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:8000/signin", {
+        const response = await fetch("/signin", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(userDetail)
         });
-        if(response.ok){
+        if (response.ok) {
+            const data = await response.json();
+            console.log(data.token);
+            storeTokenInLS(data.token);
             navigate ("/");
         }
     }
@@ -60,13 +65,13 @@ const Login = () => {
                                                     <div className="col-12">
                                                         <div className="form-floating mb-3">
                                                             <label for="email" className="form-label mb-4">Email</label>
-                                                            <input type="email" className="form-control" name="email" id="email" placeholder="name@example.com" onChange={inputHandler}  value={userDetail.email} />
+                                                            <input type="email" className="form-control" name="email" id="email" placeholder="name@example.com" onChange={inputHandler} value={userDetail.email} />
                                                         </div>
                                                     </div>
                                                     <div className="col-12">
                                                         <div className="form-floating mb-3">
                                                             <label for="password" className="form-label mb-4">Password</label>
-                                                            <input type="password" className="form-control" name="password" id="password"  placeholder="Password" onChange={inputHandler} value={userDetail.password} />
+                                                            <input type="password" className="form-control" name="password" id="password" placeholder="Password" onChange={inputHandler} value={userDetail.password} />
                                                         </div>
                                                     </div>
                                                     <div className="col-12">

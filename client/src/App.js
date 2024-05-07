@@ -9,6 +9,7 @@ import Contact from './components/Contact';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Page404 from './components/Page404';
+import Logout from './components/Logout';
 
 
 
@@ -22,6 +23,7 @@ function App() {
           <Route  path="/contact" Component={Contact}></Route>
           <Route  path="/login" Component={Login}></Route>
           <Route  path="/signup" Component={Signup}></Route>
+          <Route  path="/logout" Component={Logout}></Route>
           <Route  path="*" Component={Page404}></Route>
       </Routes>
     </>

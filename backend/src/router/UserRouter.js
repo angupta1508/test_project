@@ -10,6 +10,7 @@ router.get("/", (req, res) => {
 })
 
 router.get("/about", auth, (req, res) => {
+    console.log(res.cookie.jwt);
     res.send("This is About Page");
 })
 
@@ -55,11 +56,13 @@ router.post("/signin", async (req, res) => {
             }
             const token =  await user.generateToken();
             console.log(token);
-            res.cookie("jwtoken",token,{
-                expires:new Date(Date.now() + 10000),
-                httpOnly:true
-            });
-            res.status(200).json({ message: "User Login Successfully" });
+            // res.cookie("jwt",token,{
+            //     expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+            //     httpOnly:true
+            // });
+            
+            
+            res.status(200).json({userID:user._id,token, message: "User Login Successfully" });
         } else {
             res.status(400).json({ message: "Invalid Login Details" });
         }
