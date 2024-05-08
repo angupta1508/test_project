@@ -1,4 +1,40 @@
+import { useState } from "react";
+import { useAuth } from "../store/auth";
+
 const Contact = () => {
+    const [contact, setContact] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+    });
+    const [userData,setUserData] = useState(true);
+    const { user } = useAuth();
+    
+    if(userData && user) {
+        setContact({
+            name: user.name,
+            email: user.email,
+            phone: user.phone,
+            message: "",
+        });
+        setUserData(false);
+    }
+
+    const InputHandler = (event) => {
+
+        const { name, value } = event.target;
+
+        setContact((preVal) => {
+            return {
+                ...preVal,
+                [name]: value
+            }
+        })
+
+
+    }
+
     return (
         <>
             <div className="container contact-form" >
@@ -11,26 +47,26 @@ const Contact = () => {
                         <div className="row">
                             <div className="col-md-6">
                                 <div className="form-group mt-3">
-                                    <input type="text" name="txtName" className="form-control" placeholder="Your Name *" value="" />
+                                    <input type="text" name="name" className="form-control" placeholder="Your Name *" value={contact.name} onChange={InputHandler} />
                                 </div>
                                 <div className="form-group mt-3">
-                                    <input type="text" name="txtEmail" className="form-control" placeholder="Your Email *" value="" />
+                                    <input type="text" name="email" className="form-control" placeholder="Your Email *" value={contact.email} onChange={InputHandler} />
                                 </div>
                                 <div className="form-group mt-3">
-                                    <input type="text" name="txtPhone" className="form-control" placeholder="Your Phone Number *" value="" />
+                                    <input type="text" name="phone" className="form-control" placeholder="Your Phone Number *" value={contact.phone} onChange={InputHandler} />
                                 </div>
                                 <div className="form-group mt-3">
-                                    <input type="submit" name="btnSubmit" className="btnContact" value="Send Message" />
+                                    <input type="submit" name="submit" className="btnContact" value="Send Message" />
                                 </div>
                             </div>
                             <div className="col-md-6">
                                 <div className="form-group mt-3">
-                                    <textarea name="txtMsg" className="form-control" placeholder="Your Message *" style={{ width: "100%", height: "150px;" }}></textarea>
+                                    <textarea name="message" className="form-control" placeholder="Your Message *" onChange={InputHandler} style={{ width: "100%", height: "150px" }}>{contact.message}</textarea>
                                 </div>
                             </div>
                         </div>
                     </form>
-                </div>  
+                </div>
             </div>
         </>
     );

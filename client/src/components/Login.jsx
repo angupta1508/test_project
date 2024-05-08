@@ -51,7 +51,7 @@ const Login = () => {
                                             <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login</p>
 
                                             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                                                className="img-fluid" alt="Sample image" />
+                                                className="img-fluid" alt="login page" />
                                             <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
                                                 <NavLink to="/signup" className="link-secondary text-decoration-none">Sign Up</NavLink>
                                             </p>

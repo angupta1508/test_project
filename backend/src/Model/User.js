@@ -43,6 +43,13 @@ userSchema.methods.generateToken = async function(next) {
     }
 }
 
+userSchema.methods.getPublicProfile = function () {
+    const userObject = this.toObject();
+    delete userObject.tokens;
+    delete userObject.password
+    return userObject;
+}
+
 userSchema.pre("save", async function (next) {
     if (this.isModified("password")) {
         this.password = await bcrypt.hash(this.password, 10);

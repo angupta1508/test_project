@@ -45,6 +45,21 @@ router.get("/signin", (req, res) => {
 })
 
 
+router.get("/userme", auth, (req, res) => {
+    try {
+        let userData = req.userData;
+        let token = req.token;
+        res.status(200).json({
+            userData, token,
+        })
+    } catch (error) {
+        res.status(401).json({ message: "User is not loggedIn" })
+    }
+})
+
+
+
+
 router.post("/signin", async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -54,15 +69,15 @@ router.post("/signin", async (req, res) => {
             if (!checkPassword) {
                 res.status(400).json({ message: "Invalid Login Details" });
             }
-            const token =  await user.generateToken();
+            const token = await user.generateToken();
             console.log(token);
             // res.cookie("jwt",token,{
             //     expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
             //     httpOnly:true
             // });
-            
-            
-            res.status(200).json({userID:user._id,token, message: "User Login Successfully" });
+
+
+            res.status(200).json({ userID: user._id, token, message: "User Login Successfully" });
         } else {
             res.status(400).json({ message: "Invalid Login Details" });
         }
