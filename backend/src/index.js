@@ -21,7 +21,7 @@ app.use(UserRouter);
 
 
 app.listen(PORT, () => {
-    console.log("Server Listen");
+    console.log("Server Listen "+ PORT);
 })
 
 

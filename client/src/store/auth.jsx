@@ -8,10 +8,10 @@ const AuthProvider = ({ children }) => {
         return localStorage.setItem("token", serverToken);
     }
     const isLoggedIn = !!token;
-    console.log(isLoggedIn);
+    // console.log(isLoggedIn);
     const logout = () => {
         setToken("");
-        return localStorage.removeItem("token");
+        localStorage.removeItem("token");
     }
 
     return (

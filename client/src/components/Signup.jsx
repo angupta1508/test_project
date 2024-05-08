@@ -65,7 +65,7 @@ const Signup = () => {
                                                 <div className="d-flex flex-row align-items-center mb-4">
                                                     <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                                                     <div data-mdb-input-init className="form-outline flex-fill mb-0">
-                                                        <label className="form-label" for="form3Example1c">Your Name</label>
+                                                        <label className="form-label" htmlFor="form3Example1c">Your Name</label>
                                                         <input type="text" name="name" id="form3Example1c" className="form-control" onChange={inputHandler} value={formVal.name} />
                                                     </div>
                                                 </div>
@@ -73,7 +73,7 @@ const Signup = () => {
                                                 <div className="d-flex flex-row align-items-center mb-4">
                                                     <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                     <div data-mdb-input-init className="form-outline flex-fill mb-0">
-                                                        <label className="form-label" for="form3Example3c">Your Email</label>
+                                                        <label className="form-label" htmlFor="form3Example3c">Your Email</label>
                                                         <input type="email" name="email" id="form3Example3c" className="form-control" onChange={inputHandler} value={formVal.email} />
                                                     </div>
                                                 </div>
@@ -81,7 +81,7 @@ const Signup = () => {
                                                 <div className="d-flex flex-row align-items-center mb-4">
                                                     <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                     <div data-mdb-input-init className="form-outline flex-fill mb-0">
-                                                        <label className="form-label" for="form3Example3c">Your Mobile Number</label>
+                                                        <label className="form-label" htmlFor="form3Example3c">Your Mobile Number</label>
                                                         <input type="number" name="phone" id="form3Example3c" className="form-control" onChange={inputHandler} value={formVal.phone} />
                                                     </div>
                                                 </div>
@@ -89,7 +89,7 @@ const Signup = () => {
                                                 <div className="d-flex flex-row align-items-center mb-4">
                                                     <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                     <div data-mdb-input-init className="form-outline flex-fill mb-0">
-                                                        <label className="form-label" for="form3Example4c">Password</label>
+                                                        <label className="form-label" htmlFor="form3Example4c">Password</label>
                                                         <input type="password" name="password" id="form3Example4c" className="form-control" onChange={inputHandler} value={formVal.password} />
                                                     </div>
                                                 </div>
@@ -97,14 +97,14 @@ const Signup = () => {
                                                 <div className="d-flex flex-row align-items-center mb-4">
                                                     <i className="fas fa-key fa-lg me-3 fa-fw"></i>
                                                     <div data-mdb-input-init className="form-outline flex-fill mb-0">
-                                                        <label className="form-label" for="form3Example4cd">Repeat your password</label>
+                                                        <label className="form-label" htmlFor="form3Example4cd">Repeat your password</label>
                                                         <input type="password" name="cpassword" id="form3Example4cd" className="form-control" onChange={inputHandler} value={formVal.cpassword} />
                                                     </div>
                                                 </div>
 
                                                 <div className="form-check d-flex justify-content-center mb-5">
                                                     <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
-                                                    <label className="form-check-label" for="form2Example3">
+                                                    <label className="form-check-label" htmlFor="form2Example3">
                                                         I agree all statements in <a href="#!">Terms of service</a>
                                                     </label>
                                                 </div>

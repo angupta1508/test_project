@@ -64,20 +64,20 @@ const Login = () => {
                                                 <div className="row gy-3 overflow-hidden">
                                                     <div className="col-12">
                                                         <div className="form-floating mb-3">
-                                                            <label for="email" className="form-label mb-4">Email</label>
+                                                            <label htmlFor="email" className="form-label mb-4">Email</label>
                                                             <input type="email" className="form-control" name="email" id="email" placeholder="name@example.com" onChange={inputHandler} value={userDetail.email} />
                                                         </div>
                                                     </div>
                                                     <div className="col-12">
                                                         <div className="form-floating mb-3">
-                                                            <label for="password" className="form-label mb-4">Password</label>
+                                                            <label htmlFor="password" className="form-label mb-4">Password</label>
                                                             <input type="password" className="form-control" name="password" id="password" placeholder="Password" onChange={inputHandler} value={userDetail.password} />
                                                         </div>
                                                     </div>
                                                     <div className="col-12">
                                                         <div className="form-check">
                                                             <input className="form-check-input" type="checkbox" value="" name="remember_me" id="remember_me" />
-                                                            <label className="form-check-label text-secondary" for="remember_me">
+                                                            <label className="form-check-label text-secondary" htmlFor="remember_me">
                                                                 Keep me logged in
                                                             </label>
                                                         </div>
